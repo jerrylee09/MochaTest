@@ -1,0 +1,23 @@
+{
+  "name": "mochatest",
+  "version": "1.0.0",
+  "description": "Learning Unit Testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jerrylee09/MochaTest.git"
+  },
+  "author": "Jerry Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jerrylee09/MochaTest/issues"
+  },
+  "homepage": "https://github.com/jerrylee09/MochaTest#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1"
+  }
+}
