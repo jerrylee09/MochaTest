@@ -1,23 +1,52 @@
 const expect  = require('chai').expect;
 const request = require('request');
 
-it('Main page content', function(done) {
-    request('http://localhost:8080' , function(error, response, body) {
-        expect(body).to.equal('Hello World');
-        done();
-    });
-});
+// it('Main page content', function(done) {
+//     request('http://localhost:8080' , function(error, response, body) {
+//         expect(body).to.equal('Hello World');
+//         done();
+//     });
+// });
+//
+// it('Main page status', function(done) {
+//     request('http://localhost:8080' , function(error, response, body) {
+//         expect(response.statusCode).to.equal(200);
+//         done();
+//     });
+// });
+//
+// it('About page content', function(done) {
+//     request('http://localhost:8080/about' , function(error, response, body) {
+//         expect(response.statusCode).to.equal(404);
+//         done();
+//     });
+// });
 
-it('Main page status', function(done) {
-    request('http://localhost:8080' , function(error, response, body) {
-        expect(response.statusCode).to.equal(200);
-        done();
-    });
-});
+// Grouping tests
+describe('Status and content', function() {
+    describe ('Main page', function() {
+        it('status', function(done){
+            request('http://localhost:8080/', function(error, response, body) {
+                expect(response.statusCode).to.equal(200);
+                done();
+            });
+        });
 
-it('About page content', function(done) {
-    request('http://localhost:8080/about' , function(error, response, body) {
-        expect(response.statusCode).to.equal(404);
-        done();
+        it('content', function(done) {
+            request('http://localhost:8080/' , function(error, response, body) {
+                expect(body).to.equal('Hello World');
+                done();
+            });
+        });
+    });
+
+    describe ('About page', function() {
+        it('status', function(done){
+            request('http://localhost:8080/about', function(error, response, body) {
+                expect(response.statusCode).to.equal(404);
+                done();
+            });
+        });
+
     });
 });
